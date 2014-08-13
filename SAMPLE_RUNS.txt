@@ -1,0 +1,35 @@
+java -Xms512m -Xmx1024m Flipper <inputFolder> <inputFile> <dictionaryfilename> 
+            <supportsfilename> <min pos correlation> <max neg correlation> [transaction delimiter] [dictionarydelimiter]
+
+Extracting flipping correlations from groceries dataset with 3 levels of abstraction
+=====================================================================================
+java -Xms512m -Xmx1024m Flipper sample_input/groceries input_groceries.txt itemhierarchy.csv supports.txt 0.12 0.1
+
+Sample output:
+---------------  
++ - correlation greater than <min pos correlation>
+- - correlation less than <max neg correlation>
+
+Even in this little file, there are some interesting flipping correlations
+   
+(+) DRINKS together with PERFUMERY[kulc=0.34] [count=555] 
+  (-) BEER together with COSMETICS[kulc=0.08] [count=23] 
+    (+) CANNED BEER together with BABY COSMETICS[kulc=0.17] [count=2] 
+    
+(+) PERFUMERY together with PROCESSED FOOD[kulc=0.24] [count=310] 
+  (-) COSMETICS together with VINEGAR/OILS[kulc=0.1] [count=26] 
+    (+) BABY COSMETICS together with OIL[kulc=0.17] [count=2] 
+    
+(+) CANNED FOOD together with NON-FOOD[kulc=0.25] [count=347] 
+  (-) PET FOOD/CARE together with GAMES/BOOKS/HOBBY[kulc=0.09] [count=48] 
+    (+) CAT FOOD together with SOUND STORAGE MEDIUM[kulc=0.5] [count=1]
+    
+(+) NON-FOOD together with SNACKS AND CANDIES[kulc=0.3] [count=719] 
+  (-) GAMES/BOOKS/HOBBY together with CANDY[kulc=0.06] [count=25] 
+    (+) SOUND STORAGE MEDIUM together with CANDY[kulc=0.5] [count=1] 
+    
+(+) FRESH PRODUCTS together with MEET AND SAUSAGE[kulc=0.59] [count=2492] 
+  (-) DELICATESSEN together with PORK[kulc=0.07] [count=13] 
+    (+) SALAD DRESSING together with PORK[kulc=0.19] [count=3] 
+    
+    
