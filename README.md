@@ -1,6 +1,6 @@
 flipper
 =======
-<h1>Flipper</h1>
+
 <p>This is a datamining app which extracts flipping correlations 
 from market basket transactions with taxonomies.
 
@@ -9,7 +9,7 @@ in the same observation (transaction).
 The correlation is negative if they rarely occur together.
 The same item (for example, skim milk or white bread) 
 can be generalized to higher abstraction levels (milk, bread).
-The higher abstraction groups encompass more items.
+The higher abstraction groups encompass multiple items and thus correlation between them may be different.
 The correlation between milk and bread can be positive, while correlation between some specific sub-types (skim milk and white bread) can be negative. 
 We say that correlation flips when moving from one abstraction level to another.</p>
 
@@ -38,7 +38,7 @@ Specify command-line arguments in the following order:
 <ol>
 <li>Full path to the folder with input files</li>
 <li>Name of the file with lines of transactions, each line is a separate transaction, each item is separated by a delimiter </li>
-<li>Name of the dictionary file, where for each item there are at least 2 levels of abstraction. 
+<li>Name of the dictionary file, with at least 2 hierarchy levels per item. 
 Format: item ID, followed by the highest abstraction level, and then by more specific levels.</li>
 <li>Name of the supports file: 
 for each hierarchy level - specify its min support.</li>
@@ -50,7 +50,7 @@ If your input has different delimiters, these can be re-specified
 as optional parameters 7 (for transactions) and 8 (for hierarchies).
 
 <h2>Sample usage</h2>
-There is a folder sample_input which contains groceries dataset in the 'groceries' sub-folder. 
+There is a compressed folder 'sample_input' which contains groceries dataset in the 'groceries' sub-folder. 
 This is a small dataset of grocery purchases with about 10,000 transactions.
 To run Flipper on this dataset: 
 <pre><code>
